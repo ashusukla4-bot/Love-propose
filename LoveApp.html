@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Surprise ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, #ff758c, #ff4b7d, #8e44ad);
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  padding: 25px;
+  box-sizing: border-box;
+  background: #ffffff25;
+  border: 1px solid #ffffff70;
+  border-radius: 25px;
+  box-shadow: 0 10px 35px #4b123d55;
+}
+
+.heart {
+  font-size: 65px;
+  animation: beat 1s infinite;
+}
+
+input {
+  width: 100%;
+  padding: 13px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+button {
+  padding: 13px 20px;
+  margin: 8px 4px;
+  border: none;
+  border-radius: 25px;
+  background: white;
+  color: #d62967;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#surprise {
+  display: none;
+}
+
+@keyframes beat {
+  50% { transform: scale(1.15); }
+}
+</style>
+</head>
+
+<body>
+<div class="card">
+  <div class="heart">💖</div>
+  <h1>A Special Surprise!</h1>
+  <p>Someone has a message for you ❤️</p>
+
+  <input id="myName" placeholder="Your name">
+  <input id="theirName" placeholder="Their name">
+
+  <button onclick="openLove()">Open Surprise 💌</button>
+
+  <div id="surprise">
+    <div class="heart">❤️</div>
+    <h2 id="greeting"></h2>
+    <p id="message"></p>
+    <h2>Will you accept my proposal? 💍</h2>
+    <button onclick="reply('yes')">Yes! ❤️</button>
+    <button onclick="reply('time')">Need some time 😊</button>
+    <p id="answer"></p>
+  </div>
+</div>
+
+<script>
+function openLove() {
+  const me = document.getElementById("myName").value.trim();
+  const you = document.getElementById("theirName").value.trim();
+
+  if (!you) {
+    alert("Please enter their name ❤️");
+    return;
+  }
+
+  document.getElementById("greeting").textContent =
+    "Dear " + you + " 💖";
+
+  document.getElementById("message").textContent =
+    me ? "With love, " + me + " ❤️"
+       : "Someone has something special to tell you ❤️";
+
+  document.getElementById("answer").textContent = "";
+  document.getElementById("surprise").style.display = "block";
+}
+
+function reply(choice) {
+  document.getElementById("answer").textContent =
+    choice === "yes"
+      ? "Thank you for this beautiful moment! ❤️"
+      : "Take your time. No pressure! 💗";
+}
+</script>
+</body>
+</html>
